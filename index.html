@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Data Visualization </title>
+    <link rel="stylesheet" href="css/bulma.min.css" />
+    <link rel="stylesheet" href="css/exercice.css"  type="text/css" >
+    <link rel="stylesheet" href="css/wavy.css"  type="text/css" >
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
+  </head>
+  <body>
+
+    <body1>
+    <div class="waviy">
+      <span style="--i:1">Interactive</span>
+      <span style="--i:2">Data</span>
+      <span style="--i:3">Visualization</span>
+      </div>
+    </body1>
+    <section class="section">
+
+        
+        <h1 class="title is-2"> <center>  </center></h1>
+        <h1 class="title is-2">
+          <center>  Visualization of Emissions from French Airports </center>
+        </h1>
+        <center> <h2>Supervised By: Dr Jacques Gautier and Dr Maria Jesus Lobo</h2>
+        <h2>Submitted By: Saad Ahmed Jamal </h2>
+        <h3>Dated: 25/01/2023</h3></center>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <p>Interactive data visualization is the use of tools and processes to produce a visual representation of data which can be explored and analyzed directly within the visualization itself. This interaction can help uncover insights which lead to better, data-driven decisions.
+          Interactive data visualization refers to the use of interactive visual elements, such as charts, graphs, and maps, to display and analyze data in a way that allows users to manipulate and explore the data in real-time. This approach allows users to quickly understand patterns and trends in the data, and make more informed decisions based on the insights gained. 
+
+        </p><br>
+        
+        <p>In this exercise, the given data presents Daily Emissions for Airports in France. The data contained 22064 rows in a csv file format and there were no empty or invalid cells. In the following exercises, Vega-lite.js has been used to make visualizations from data to better understand its different aspects and to perform analytics.
+          Some popular tools for interactive data visualization include Tableau, and Plotly.
+
+        </p>
+        <h2 class="title is-3"><br>Exercise 1: Emissions per Airport</h2>
+        <h2 class="title is-4"></h2>
+        <p>In the first exercise, The visualization presents total Carbondioxide emissions for Each airport from year 2000 to 2017. </p>
+        <p>Given data was grouped according to the airports. The aggregated data presented emissions for 10 airports. A map based visualization was made using this data. Later on, the table is displayed</p><br>
+        <div id="selection_1"></div><br><br>
+        <p><i> <center> Visualization of CO2 emissions through airports </center> </i><br></p>
+
+        <p>It can be observed from the above visualization and filtering operation that most CO2 emissions were from airport of Paris (Charles De Gaulle). This is understandable as it
+          is one of the bussiest airport's in the World. With more number of flights, emitted Carbondioxide would be more. Threshold scale was choosen such that symbol size represent propotional value. 
+          The main focus of visualzation is CO2 however, other emissions such as NOx can also be visualized by hovering the mouse over the circle.<br> </p><br>
+        <h2>The following table was used for the visualzation above:</h2> <br>
+        <div id="selection_2" class="table_class2"  ></div> <br>
+
+
+
+
+        <h2 class="title is-4">
+          Exercise 2: Spatio-Temporal Visualization of Carbondioxide Emissions
+        </h2>
+
+
+        <video width="2820" height="1080" controls loop autoplay muted>
+          <source src="data/kepler_2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <p><i> <center> Visualization of CO2 emissions per year through airports </center> </i><br>
+          <strong> The visualization was made using kepler.gl and it makes use of 2D+1 type by data thorugh varying hieght. 
+        The visualiation was made as the given data was a spatial temporal data as it contained coordinates for airports and different rows represented dates. </strong></p><br>
+
+<p>Above visualization would help to reduce clutering by space covered by mouse cursor and tooltip.</p>
+
+
+
+
+        <br><br>        <br><br>
+        <br><br>
+        <br><br>
+<p>Following Visualizations were under working</p>
+        <h2 class="title is-4">Bar Chart Visualization with Multiple View</h2>
+
+        <div id="selection_3"></div>
+       
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+        <div id="selection_4"></div>
+      </div>
+<h1>Airports around the world </h1>
+      <div id="selection_5"></div>
+    </div>
+
+
+
+         <!--
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Exercise 2: Filters</h2>
+        <h2 class="title is-4">Filter according to minimum number of trips</h2>
+        <div id="filter_1"></div>
+        <h2 class="title is-4">
+          Filter according to mimimum and maximim number of trains
+        </h2>
+        <div id="filter_2"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Exercise 3: Multiple Views</h2>
+        <h2 class="title is-4">Concatenated views</h2>
+        <div id="multiple_1"></div>
+        <h2 class="title is-4">Number of arrivals and departures</h2>
+        <div id="multiple_2"></div>
+        <h2 class="title is-4">Average delay at departure and arrival</h2>
+        <div id="multiple_3"></div>
+        <h2 class="title is-4">Four multiple views</h2>
+        <div id="multiple_4"></div>
+        <div id="multiple_5"></div>
+
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Exercise 4: Linked views</h2>
+        <h2 class="title is-4">Map and OD matrix</h2>
+        <div id="linked_1"></div>
+        <h2 class="title is-4">Adding a filter</h2>
+        <div id="linked_2"></div>
+        <h2 class="title is-4">Improved visual encoding</h2>
+        <div id="linked_3"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Exercise 5: Go Further</h2>
+        <h2 class="title is-4">Interactive highlight</h2>
+        <div id="further_1"></div>
+      </div>
+
+    </section>
+    -->
+
+
+
+
+    <script src="./correction_exercice1.js"></script>
+    <script src="./correction_exercice2.js"></script>
+    <script src="./correction_exercice3.js"></script>
+    <script src="./correction_exercice4.js"></script>
+    <script src="./correction_exercice5.js"></script>
+   
+  </body>
+</html>

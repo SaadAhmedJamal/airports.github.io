@@ -1,0 +1,22 @@
+.title{
+	font-size: 20px; 
+	margin:20px;
+	}
+		
+.description{
+	font-size: 15px; 
+	margin:20px;
+	}
+
+.table_class2{
+	width:fit-content;
+	height: 200px; 
+	overflow:auto; 
+	border:solid;
+	text-align: center;
+	align-items: center;
+	position: relative;
+
+	margin-left: 25%;
+
+	}
