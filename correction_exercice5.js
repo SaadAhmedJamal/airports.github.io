@@ -7,7 +7,7 @@ async function createVisualizations() {
   var airports = await aq.loadCSV('data/airports.csv');
 //  var airportsEmissionFr = await aq.loadCSV('data/emissionsfr@1.csv');
 
- 
+ console.log(airports);
 
   // EXERCISES
   createVisualizationsQ5(airports);
@@ -16,11 +16,7 @@ async function createVisualizations() {
 function createVisualizationsQ5(airports) {
 
 
-  var selection5 =
-  
-  
-  
-  {
+  var selection5 =  {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
@@ -41,8 +37,8 @@ function createVisualizationsQ5(airports) {
       },
       {
         "name": "earthquakeSize",
-        "value": 6,
-        "bind": {"input": "range", "min": 0, "max": 12, "step": 0.1}
+        "value": 0.8,
+        "bind": {"input": "range", "min": 0, "max": 2, "step": 0.1}
       }
     ],
     "layer": [
@@ -59,26 +55,32 @@ function createVisualizationsQ5(airports) {
         "mark": {"type": "geoshape", "fill": "mintcream", "stroke": "black"}
       },
       {
-        "data": {
-          "name": "earthquakes",
-          "url": "data/earthquakes.json",
-          "format": {"type": "json", "property": "features"}
+         "data": {
+
+          values: airports.objects(),
+/*
+          "name": "airports",
+          "url": "data/airports.csv",
+          "format": {"type": "csv", "property": "features"}
+                              */
+
+        
         },
         "transform": [
-          {"calculate": "datum.geometry.coordinates[0]", "as": "longitude"},
-          {"calculate": "datum.geometry.coordinates[1]", "as": "latitude"},
-          {
-            "filter": "(rotate0 * -1) - 90 < datum.longitude && datum.longitude < (rotate0 * -1) + 90 && (rotate1 * -1) - 90 < datum.latitude && datum.latitude < (rotate1 * -1) + 90"
-          },
-          {"calculate": "datum.properties.mag", "as": "magnitude"}
+          //{"calculate": "datum.geometry.coordinates[0]", "as": "longitude"},
+          //{"calculate": "datum.geometry.coordinates[1]", "as": "latitude"},
+          //{
+          //  "filter": "(rotate0 * -1) - 90 < datum.longitude && datum.longitude < (rotate0 * -1) + 90 && (rotate1 * -1) - 90 < datum.latitude && datum.latitude < (rotate1 * -1) + 90"
+          //},
+          //{"calculate": "datum.properties.mag", "as": "magnitude"}
         ],
         "mark": {"type": "circle", "color": "red", "opacity": 0.25},
         "encoding": {
-          "longitude": {"field": "longitude", "type": "quantitative"},
-          "latitude": {"field": "latitude", "type": "quantitative"},
+          "longitude": {"field": "longitude_deg", "type": "quantitative"},
+          "latitude": {"field": "latitude_deg", "type": "quantitative"},
           "size": {
             "legend": null,
-            "field": "magnitude",
+            "field": "elevation_ft",
             "type": "quantitative",
             "scale": {
               "type": "sqrt",
@@ -86,7 +88,15 @@ function createVisualizationsQ5(airports) {
               "range": [0, {"expr": "pow(earthquakeSize, 3)"}]
             }
           },
-          "tooltip": [{"field": "magnitude"}]
+          "tooltip": [{"field": "name"},
+        
+          {"field": "type"},
+          {"field": "iso_country"},
+          {"field": "muncipality"},
+          {"field": "local_code"}
+        
+        
+        ]
         }
       }
     ]

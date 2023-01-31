@@ -1,3 +1,4 @@
+/*
 gsap.registerPlugin(ScrollTrigger);
 // REVEAL //
 gsap.utils.toArray(".revealUp").forEach(function (elem) {
@@ -40,3 +41,4 @@ gsap.utils.toArray(".revealUp").forEach(function (elem) {
     }
   });
 });
+*/

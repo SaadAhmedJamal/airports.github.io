@@ -26,7 +26,7 @@ async function createVisualizations() {
 document.getElementById('selection_2').innerHTML = EmissionsPerAirport.toHTML();
 
   
- 
+//https://cartographyvectors.com/map/854-austria-detailed-boundary
 
   // EXERCISES
   createVisualizationsQ1(airportsEmissionsFr, EmissionsPerAirport);
@@ -148,3 +148,19 @@ function createVisualizationsQ1(airportsEmissionsFr, EmissionsPerAirport) {
 }
 
 createVisualizations();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
