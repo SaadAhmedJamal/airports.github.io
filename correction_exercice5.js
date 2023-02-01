@@ -36,7 +36,7 @@ function createVisualizationsQ5(airports) {
         "bind": {"input": "range", "min": -90, "max": 90, "step": 1}
       },
       {
-        "name": "earthquakeSize",
+        "name": "Point_Size",
         "value": 0.8,
         "bind": {"input": "range", "min": 0, "max": 2, "step": 0.1}
       }
@@ -85,14 +85,13 @@ function createVisualizationsQ5(airports) {
             "scale": {
               "type": "sqrt",
               "domain": [0, 100],
-              "range": [0, {"expr": "pow(earthquakeSize, 3)"}]
+              "range": [0, {"expr": "pow(Point_Size, 3)"}]
             }
           },
           "tooltip": [{"field": "name"},
         
           {"field": "type"},
           {"field": "iso_country"},
-          {"field": "muncipality"},
           {"field": "local_code"}
         
         
